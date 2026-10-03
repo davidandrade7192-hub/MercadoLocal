@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1877f2" />
+    <meta name="description" content="Compra productos de tecnología, hogar, moda y más en Mercado Local." />
+    <title>Mercado Local · Marketplace</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-main">
+        <a class="brand" href="#inicio" data-route="home" aria-label="Mercado Local, inicio">
+          <span class="brand-logo">M</span>
+          <span class="brand-name">mercado<span>local</span></span>
+        </a>
+
+        <div class="search-shell">
+          <form class="header-search" id="header-search-form" role="search">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="global-search" type="search" placeholder="Buscar productos, marcas y categorías" autocomplete="off" />
+            <button class="clear-search" type="button" data-action="clear-search" aria-label="Borrar búsqueda" hidden>×</button>
+            <button class="search-submit" type="submit">Buscar</button>
+          </form>
+          <div class="search-suggestions" id="search-suggestions" hidden></div>
+        </div>
+
+        <nav class="main-nav" aria-label="Navegación principal">
+          <button type="button" data-route="home" class="nav-link active">Inicio</button>
+          <button type="button" data-route="categories" class="nav-link">Categorías</button>
+          <button type="button" data-route="offers" class="nav-link">Ofertas <span class="nav-sale">-20%</span></button>
+        </nav>
+
+        <div class="header-actions">
+          <button class="action-icon-button location-action" data-action="location" type="button" aria-label="Ubicación: Bogotá, Colombia">⌖</button>
+          <button class="action-icon-button notification-action" data-action="notifications" type="button" aria-label="Notificaciones">♧<i></i></button>
+          <button class="header-action favorite-action" data-route="favorites" type="button" aria-label="Ver favoritos">
+            <span class="action-icon">♡</span><span class="action-label">Favoritos</span><b id="favorite-count" class="action-count">0</b>
+          </button>
+          <button class="header-action cart-action" data-route="cart" type="button" aria-label="Ver carrito">
+            <span class="action-icon">▱</span><span class="action-label">Carrito</span><b id="cart-count" class="action-count">0</b>
+          </button>
+          <button class="sell-button" id="open-sell" type="button"><span>＋</span> Vender</button>
+          <button class="profile-button" data-action="profile" type="button" aria-label="Perfil de usuario"><span class="avatar">DA</span><span class="profile-name">David</span><span class="chevron">⌄</span></button>
+        </div>
+      </div>
+      <div class="mobile-search-row">
+        <form class="mobile-search" id="mobile-search-form" role="search">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="mobile-search-input" type="search" placeholder="Buscar en Mercado Local" autocomplete="off" />
+          <button type="button" data-action="clear-search" aria-label="Borrar búsqueda">×</button>
+        </form>
+      </div>
+    </header>
+
+    <main id="app-content" tabindex="-1"></main>
+
+    <footer class="site-footer">
+      <div class="footer-brand"><span class="footer-logo">M</span><strong>mercado<span>local</span></strong></div>
+      <p>Compra cerca. Vende fácil. Dale otra vida.</p>
+      <span>© 2026 Mercado Local · Marketplace de demostración</span>
+    </footer>
+
+    <nav class="mobile-bottom-nav" aria-label="Navegación móvil">
+      <button type="button" data-route="home" class="active"><span>⌂</span>Inicio</button>
+      <button type="button" data-route="categories"><span>▦</span>Categorías</button>
+      <button type="button" data-route="offers"><span>％</span>Ofertas</button>
+      <button type="button" data-route="favorites"><span>♡</span>Favoritos</button>
+      <button type="button" data-route="cart"><span>▱</span>Carrito<i id="mobile-cart-count">0</i></button>
+    </nav>
+
+    <dialog class="sell-dialog" id="sell-dialog">
+      <form id="sell-form" class="sell-form">
+        <button class="dialog-close" type="button" data-action="close-sell" aria-label="Cerrar">×</button>
+        <span class="eyebrow">PUBLICAR EN MARKETPLACE</span>
+        <h2>Vende algo que ya no usas</h2>
+        <p>Completa los datos y agrega tu publicación al catálogo.</p>
+        <label>Nombre del artículo<input name="title" required maxlength="90" placeholder="Ej. Mesa de comedor" /></label>
+        <div class="form-grid">
+          <label>Precio en COP<input name="price" type="number" min="1" required placeholder="250000" /></label>
+          <label>Categoría<select name="category" required></select></label>
+        </div>
+        <div class="form-grid">
+          <label>Precio anterior (opcional)<input name="previousPrice" type="number" min="0" placeholder="300000" /></label>
+          <label>Unidades disponibles<input name="stock" type="number" min="0" value="1" /></label>
+        </div>
+        <label>Condición<select name="condition"><option>Nuevo</option><option>Como nuevo</option><option>Usado</option></select></label>
+        <label>Descripción<textarea name="description" rows="3" maxlength="500" placeholder="Cuenta un poco más sobre el artículo..."></textarea></label>
+        <button class="primary-button full-button" type="submit">Publicar artículo <span>↗</span></button>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
